@@ -1,0 +1,24 @@
+// Not Optimised
+vector<int> subarraySum(int arr[], int n, long long s)
+    {
+        // Your code here
+        vector<int> ans;
+        for(int i=0;i<n-1;i++){
+            int sum=arr[i];
+            for(int j=i+1;j<n;j++){
+            sum=sum+arr[j];
+            if(sum==s){
+                ans.push_back(i+1);
+                ans.push_back(j+1);
+                return ans;
+            }
+            if(sum>s){
+                break;
+            }
+        }
+    }
+    if(ans.size()==0){
+        ans.push_back(-1);
+    }
+    return ans;
+    }
